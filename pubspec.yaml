@@ -17,9 +17,9 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  cloud_firestore: ^0.13.5
   google_sign_in: ^4.4.4
   firebase_auth: ^0.16.0
-  cloud_firestore: ^0.13.5
   flutter_modular: ^1.1.2
   flutter_mobx: ^1.1.0
   mobx: ^1.1.1
