@@ -26,17 +26,19 @@ mixin _$AppController on _AppControllerBase, Store {
     }, _$themeAppAtom, name: '${_$themeAppAtom.name}_set');
   }
 
-  final _$_AppControllerBaseActionController =
-      ActionController(name: '_AppControllerBase');
+  final _$getThemeDataAsyncAction = AsyncAction('getThemeData');
 
   @override
-  dynamic setThemeData(ThemeMode themeMode) {
-    final _$actionInfo = _$_AppControllerBaseActionController.startAction();
-    try {
-      return super.setThemeData(themeMode);
-    } finally {
-      _$_AppControllerBaseActionController.endAction(_$actionInfo);
-    }
+  Future getThemeData() {
+    return _$getThemeDataAsyncAction.run(() => super.getThemeData());
+  }
+
+  final _$setThemeDataAsyncAction = AsyncAction('setThemeData');
+
+  @override
+  Future setThemeData(ThemeMode themeMode, {bool saveShared = true}) {
+    return _$setThemeDataAsyncAction
+        .run(() => super.setThemeData(themeMode, saveShared: saveShared));
   }
 
   @override
