@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gofast/app/app_controller.dart';
+import 'package:flutter_gofast/app/core/enum/response_status.dart';
+import 'package:flutter_gofast/app/core/interfaces/auth_repository_interface.dart';
 import 'package:flutter_gofast/app/core/internacionalizacao/app_translate.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -21,6 +23,19 @@ class SplashPage extends StatelessWidget {
             child: Text('Theme Light'),
             onPressed: () {
               Modular.get<AppController>().setThemeData(ThemeMode.light);
+            },
+          ),
+          RaisedButton(
+            child: Text('Login Google'),
+            onPressed: () async{
+              await Modular.get<IAuthRepository>().doLoginGoogle().then((result){
+                if(result.status  == ResponseStatus.Success){
+                  print(result);
+                }else{
+                  print(result);
+
+                }
+              });
             },
           )
         ],
