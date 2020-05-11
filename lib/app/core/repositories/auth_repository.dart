@@ -1,8 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_gofast/app/core/features/responses/responde_default.dart';
-import 'package:flutter_gofast/app/core/features/responses/response_builder.dart';
-import 'package:flutter_gofast/app/core/interfaces/auth_repository_interface.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../features/responses/responde_default.dart';
+import '../features/responses/response_builder.dart';
+import '../interfaces/auth_repository_interface.dart';
 
 class AuthRepository implements IAuthRepository {
   final FirebaseAuth firebaseAuth;
@@ -25,15 +25,14 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<ResponseDefault> doLoginGoogle() async {
     try {
-      final GoogleSignIn googleSignIn = GoogleSignIn();
-      final GoogleSignInAccount googleSignInAccount =
-          await googleSignIn.signIn();
-      final GoogleSignInAuthentication googleSignInAuthentication =
+      final googleSignIn = GoogleSignIn();
+      final googleSignInAccount = await googleSignIn.signIn();
+      final googleSignInAuthentication =
           await googleSignInAccount.authentication;
 
       FirebaseUser firebaseUser;
       if (googleSignInAuthentication.accessToken != null) {
-        final AuthCredential credential = GoogleAuthProvider.getCredential(
+        final credential = GoogleAuthProvider.getCredential(
             idToken: googleSignInAuthentication.idToken,
             accessToken: googleSignInAuthentication.accessToken);
 
@@ -44,7 +43,8 @@ class AuthRepository implements IAuthRepository {
       return ResponseBuilder.success<FirebaseUser>(
           object: firebaseUser, message: "Logado com sucesso");
     } catch (e) {
-      return ResponseBuilder.failed(object: e, message: "Falhaa ao logar ERRO:  ${e.toString()}");
+      return ResponseBuilder.failed(
+          object: e, message: "Falhaa ao logar ERRO:  ${e.toString()}");
     }
   }
 
@@ -61,8 +61,7 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<ResponseDefault> logout() async {
     try {
-      return ResponseBuilder.success<void>(
-          object:  firebaseAuth.signOut());
+      return ResponseBuilder.success<void>(object: firebaseAuth.signOut());
     } catch (e) {
       return ResponseBuilder.failed(object: e, message: e.toString());
     }

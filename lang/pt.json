@@ -1,6 +1,15 @@
 {
-    "welcome": "Bem Vindo!",
-    "login" : "Entrar",
-    "logout" : "Sair"
+    "intro":{
+        "welcome": "Bem Vindo ao PostIn",
+        "login_now": "Entrar Agora",
+        "or": "ou",
+        "login_google": "Entrar com Google",
+        "text_step1": "Compartilhe suas fotos favoritas",
+        "text_step2": "Compartilhe momentos, experiências e amizades",
+        "text_step3": "Seja o que você quiser, se comuniqque e aprenda com os outros"
 
+    },
+    "login":{
+
+    }
 }

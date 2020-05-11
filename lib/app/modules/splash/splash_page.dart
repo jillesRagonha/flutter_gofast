@@ -1,10 +1,11 @@
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gofast/app/app_controller.dart';
-import 'package:flutter_gofast/app/core/enum/response_status.dart';
-import 'package:flutter_gofast/app/core/interfaces/auth_repository_interface.dart';
-import 'package:flutter_gofast/app/core/internacionalizacao/app_translate.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import '../../app_controller.dart';
+import '../../core/enum/response_status.dart';
+import '../../core/interfaces/auth_repository_interface.dart';
+
+
 
 class SplashPage extends StatefulWidget {
   @override
@@ -43,8 +44,9 @@ class _SplashPageState extends State<SplashPage> {
           RaisedButton(
             child: Text('Login Google'),
             onPressed: () async{
-              await Modular.get<IAuthRepository>().doLoginGoogle().then((result){
-                if(result.status  == ResponseStatus.Success){
+              await Modular.get<IAuthRepository>().doLoginGoogle()
+              .then((result){
+                if(result.success){
                   print(result);
                 }else{
                   print(result);
