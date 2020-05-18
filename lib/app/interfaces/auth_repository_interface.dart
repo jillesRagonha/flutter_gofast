@@ -1,4 +1,5 @@
-import '../features/responses/responde_default.dart';
+
+import '../core/responses/responde_default.dart';
 
 abstract class IAuthRepository{
   Future<ResponseDefault> doLoginGoogle();

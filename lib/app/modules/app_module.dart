@@ -1,17 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_gofast/app/core/consts/routers_const.dart';
-import 'package:flutter_gofast/app/modules/intro/intro_module.dart';
-import 'package:flutter_gofast/app/modules/login/login_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'app_controller.dart';
-import 'app_widget.dart';
-import 'core/interfaces/auth_repository_interface.dart';
-import 'core/interfaces/shared_repository_interface.dart';
-import 'core/repositories/auth_repository.dart';
-import 'core/repositories/shared_repositories.dart';
-import 'modules/home/home_module.dart';
-import 'modules/splash/splash_page.dart';
+import '../controllers/app_controller.dart';
+import '../core/consts/routers_const.dart';
+import '../interfaces/auth_repository_interface.dart';
+import '../interfaces/shared_repository_interface.dart';
+import '../repositories/auth_repository.dart';
+import '../repositories/shared_repositories.dart';
+import '../views/pages/main/app_widget.dart';
+import '../views/pages/splash/splash_page.dart';
+
+import 'home_module.dart';
+import 'intro_module.dart';
+import 'login_module.dart';
+
 
 class AppModule extends MainModule {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;

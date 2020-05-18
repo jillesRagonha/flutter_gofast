@@ -1,9 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../../app_controller.dart';
-import '../../core/enum/response_status.dart';
-import '../../core/interfaces/auth_repository_interface.dart';
+import '../../../controllers/app_controller.dart';
+import '../../../interfaces/auth_repository_interface.dart';
 
 
 
